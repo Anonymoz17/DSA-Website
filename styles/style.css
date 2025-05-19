@@ -2,15 +2,15 @@
     --font: Roboto;
     --font-size: 16px;
     --text-color: #edf0ef;
-    --primary-color: #242834; 
-    --secondary-color: #1c2029;
+    --primary-color: #40434e; 
+    --secondary-color: #5e5a5a;
 }
 
 html, body {
     margin: 0;
     padding: 0;
     /* color: var(--text-color); */
-    color: black;
+    color: var(--text-color);
     /* background-color: var(--secondary-color); */
     background-color: white;
     font-family: var(--font);
@@ -20,7 +20,7 @@ html, body {
     display: grid;
     height: 100vh;
     grid-template-columns: 0.8fr 3fr 2fr;
-    grid-template-rows: 0.5fr 2fr 2fr;
+    grid-template-rows: 0.45fr 2fr 2fr;
     grid-template-areas: 
     "nav nav nav"
     "side content visual"
@@ -28,12 +28,29 @@ html, body {
 }
 
 nav {
-    background-color: aqua;
+    display: flex;
+    flex-direction: column;
     grid-area: nav;
 }
 
+.nav-top {
+    display: flex;
+    background-color: var(--primary-color);
+    height: 50%;
+}
+
+.nav-top-title {
+    font-size: large;
+    padding: 10px;  
+}
+
+.nav-bottom {
+    background-color: var(--secondary-color);
+    height: 50%;
+}
+
 .sidebar {
-    background-color: blanchedalmond;
+    background-color: purple;
     grid-area: side;
 }
 
