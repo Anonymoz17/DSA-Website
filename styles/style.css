@@ -1,115 +1,128 @@
 :root {
-    --font: Roboto;
-    --font-size: 16px;
-    --text-color: #edf0ef;
-    --primary-color: #40434e; 
-    --secondary-color: #5e5a5a;
+  /* Theme Variables */
+  --font: Roboto;
+  --font-size: 16px;
+  --text-color: #edf0ef;
+  --primary-color: #40434e;
+  --secondary-color: #5e5a5a;
+  --sidebar-width: 0.8fr;
 }
 
+/* Reset and Base Styles */
 html, body {
-    margin: 0;
-    padding: 0;
-    /* color: var(--text-color); */
-    color: var(--text-color);
-    /* background-color: var(--secondary-color); */
-    background-color: white;
-    font-family: var(--font);
+  margin: 0;
+  padding: 0;
+  font-family: var(--font);
+  color: var(--text-color);
+  background-color: white;
 }
 
+/* Container Grid Setup */
 .container {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 0.8fr 3fr 2fr;
-    grid-template-rows: 0.45fr 2fr 2fr;
-    grid-template-areas: 
+  display: grid;
+  height: 100vh;
+  background-color: var(--primary-color);
+  grid-template-columns: var(--sidebar-width) 3fr 2fr;
+  grid-template-rows: 0.45fr 2fr 2fr;
+  grid-template-areas:
     "nav nav nav"
     "side content visual"
-    "side content code"
+    "side content code";
+  transition: all 0.3s ease;
 }
 
+/* Collapsed Sidebar State */
+.container.collapsed {
+  --sidebar-width: 0fr;
+}
+
+.container.collapsed .sidebar {
+  width: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+#collapse-toggle {
+    appearance: none;
+    background-color: #6e6b6b;
+    font-size: 16px;
+    color: white;
+    box-shadow: none;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    margin: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#collapse-toggle:hover {
+    background-color: #a8a6a6;
+}
+
+/* Navigation Styles */
 nav {
-    display: flex;
-    flex-direction: column;
-    grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  grid-area: nav;
+  height: 90px;
 }
 
 .nav-top {
-    display: flex;
-    align-items: center;
-    background-color: var(--primary-color);
-    height: 50%;
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  flex: 1;
 }
 
 .nav-top img {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 .nav-top-title {
-    font-size: large;
-    padding: 10px;  
+  font-size: large;
+  padding: 10px;
 }
 
 .nav-bottom {
-    background-color: var(--secondary-color);
-    height: 50%;
-    font-size: medium;
-    padding: 10px;
+  background-color: var(--secondary-color);
+  height: 50%;
+  font-size: medium;
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
+/* Sidebar Styles */
 .sidebar {
-    background-color: purple;
-    grid-area: side;
+  background-color: var(--primary-color);
+  grid-area: side;
+  width: 100%;
+  opacity: 1;
+  overflow: hidden;
+  border-right: solid 2px;
+  border-color: black;
+  box-sizing: border-box;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  /* Transitions for smooth collapsing */
+  transition: width 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
 }
 
+/* Other Grid Areas */
 .visualization {
-    background-color: chartreuse;
-    grid-area: visual;
+  background-color: chartreuse;
+  grid-area: visual;
 }
 
 .code-view {
-    background-color: darkorchid;
-    grid-area: code;
+  background-color: darkorchid;
+  grid-area: code;
 }
 
 .content {
-    background-color: deeppink;
-    grid-area: content;
+  background-color: deeppink;
+  grid-area: content;
 }
-
-/* TOP NAVIGATION BAR */
-/* .top-navigation {  
-    box-sizing: border-box;
-    box-shadow: 0 0 5px black;
-    background-color: #242834;
-    border-radius: 15px;
-    height: 70px;
-    padding: 20px;
-    margin: 20px;
-    color: #edf0ef;
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.top-navigation-wrap { 
-    box-sizing: border-box;
-    font-size: 30px;
-} */
-
-/* MAIN CONTENT */
-
-/* .main-content {
-    box-sizing: border-box;
-    box-shadow: 0 0 5px black;
-    background-color: #242834;
-    border-radius: 15px;
-    margin: 20px;
-    padding: 20px;
-    width: 50%;
-    height: 550px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-} */
