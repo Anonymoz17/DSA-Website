@@ -35,8 +35,13 @@ nav {
 
 .nav-top {
     display: flex;
+    align-items: center;
     background-color: var(--primary-color);
     height: 50%;
+}
+
+.nav-top img {
+    padding-left: 10px;
 }
 
 .nav-top-title {
@@ -47,6 +52,8 @@ nav {
 .nav-bottom {
     background-color: var(--secondary-color);
     height: 50%;
+    font-size: medium;
+    padding: 10px;
 }
 
 .sidebar {
