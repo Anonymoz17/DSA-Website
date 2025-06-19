@@ -1,11 +1,13 @@
-:root {
+/* Color Scheme website: https://colorhunt.co/palette/222831393e46948979dfd0b8 */
+
+:root {  
   /* Theme Variables */
   --font: Roboto;
   --font-size: 16px;
   --text-color: #edf0ef;
-  --primary-color: #40434e;
-  --secondary-color: #5e5a5a;
-  --sidebar-width: 0.8fr;
+  --primary-color: #222831;
+  --secondary-color: #393E46;
+  --sidebar-width: 0.92fr;
 }
 
 /* Reset and Base Styles */
@@ -17,17 +19,24 @@ html, body {
   background-color: white;
 }
 
+a{
+  all: unset;
+  color: white;
+  cursor: pointer;
+}
+
 /* Container Grid Setup */
 .container {
   display: grid;
   height: 100vh;
   background-color: var(--primary-color);
   grid-template-columns: var(--sidebar-width) 3fr 2fr;
-  grid-template-rows: 0.45fr 2fr 2fr;
+  grid-template-rows: 60px 2fr 2fr 0.3fr;
   grid-template-areas:
     "nav nav nav"
-    "side content visual"
-    "side content code";
+    "side visual code"
+    "side visual code"
+    "controls controls controls";
   transition: all 0.3s ease;
 }
 
@@ -42,21 +51,23 @@ html, body {
   opacity: 0;
 }
 
-#collapse-toggle {
+#sidebar-toggle {
     appearance: none;
-    background-color: #6e6b6b;
-    font-size: 16px;
+    background-color: #4d5159;
+    font-size: 14px;
+    text-align: left;
     color: white;
     box-shadow: none;
-    border-radius: 5px;
+    border-radius: 2px;
     border: none;
     padding: 5px 10px;
     margin: 0;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 15%;
 }
 
-#collapse-toggle:hover {
+#sidebar-toggle:hover {
     background-color: #a8a6a6;
 }
 
@@ -65,14 +76,13 @@ nav {
   display: flex;
   flex-direction: column;
   grid-area: nav;
-  height: 90px;
 }
 
 .nav-top {
   display: flex;
   align-items: center;
   background-color: var(--primary-color);
-  flex: 1;
+  height: 50%;
 }
 
 .nav-top img {
@@ -80,17 +90,29 @@ nav {
 }
 
 .nav-top-title {
-  font-size: large;
+  font-size: 20px;
   padding: 10px;
 }
 
 .nav-bottom {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
   background-color: var(--secondary-color);
-  height: 50%;
-  font-size: medium;
-  padding: 10px;
+  box-sizing: border-box;
+  padding: 0 10px;
   display: flex;
   align-items: center;
+  height: 50%;
+}
+
+.nav-bottom-right{
+  display: flex;
+  justify-content: space-evenly;
+
+  /* border: solid 1px; */
+  width: 220px;
 }
 
 /* Sidebar Styles */
@@ -100,9 +122,10 @@ nav {
   width: 100%;
   opacity: 1;
   overflow: hidden;
-  border-right: solid 2px;
-  border-color: black;
   box-sizing: border-box;
+
+  border-right: solid 1px;
+  border-color: var(--secondary-color);
 
   white-space: nowrap;
   overflow: hidden;
@@ -114,24 +137,27 @@ nav {
 .sidebar-menu {
   list-style: none;         /* remove bullets */
   margin: 0;
-  padding: 20px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 16px;                /* space between items */
+  width: 100%;
 }
 
-.sidebar-menu li {
-  display: block;
+.sidebar-menu ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .sidebar-menu button {
+  text-align: left;
   width: 100%;
-  padding: 10px 12px;
-  background-color: #5e5a5a;
+  padding: 10px 0px 10px 20px;
+  background-color: #4d5159;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -142,16 +168,21 @@ nav {
 
 /* Other Grid Areas */
 .visualization {
-  background-color: chartreuse;
+  background-color: var(--primary-color);
   grid-area: visual;
+  margin-left: 10px;
+
+  border-right: solid 1px;
+  border-color: var(--secondary-color);
 }
 
 .code-view {
-  background-color: darkorchid;
+  background-color: var(--primary-color);
   grid-area: code;
+  margin-right: 10px;
 }
 
-.content {
-  background-color: deeppink;
-  grid-area: content;
+.controls {
+  background-color: var(--secondary-color);
+  grid-area: controls;
 }
