@@ -1,23 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US">
-  
   <head>
     <title>Data Structures and Algorithms Visualizer</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="author" content="Anonymoz17">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Tagesschrift&display=swap" rel="stylesheet">
+    <meta name="author" content="Anonymoz17" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Tagesschrift&display=swap"
+      rel="stylesheet"
+    />
     <link href="styles/style.css" rel="stylesheet" />
+    <link href="styles/visual-block.css" rel="stylesheet" />
     <script src="scripts/main.js" defer></script>
+    <script src="scripts/bubble-sort.js" defer></script>
   </head>
 
   <body>
     <div class="container">
       <nav>
         <div class="nav-top">
-          <img src="images/logo1.jpg" width="35" height="30"/>
+          <img src="images/logo1.jpg" width="35" height="30" />
           <span class="nav-top-title">Algorithm Visualizer</span>
         </div>
 
@@ -30,7 +34,6 @@
         </div>
       </nav>
 
-
       <div class="sidebar">
         <div class="sidebar-menu">
           <ul>
@@ -40,13 +43,11 @@
           </ul>
         </div>
       </div>
-      <div class="visualization">Visualization</div>
+      <div class="visualization">
+        <div class="visual-block"></div>
+      </div>
       <div class="code-view">Code View</div>
-      <div class="controls">Controls</div>
+      <div class="controls"><button onclick="startSort()">Sort</button></div>
     </div>
-    
-
   </body>
-
 </html>
-
